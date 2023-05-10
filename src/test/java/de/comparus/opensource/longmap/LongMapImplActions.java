@@ -29,6 +29,7 @@ public class LongMapImplActions<V> {
     }
 
     public final Consumer<LongMap<V>> isEmpty = map -> assertTrue(map.isEmpty());
+
     public final Consumer<LongMap<V>> isNotEmpty = map -> assertFalse(map.isEmpty());
 
     public final Consumer<LongMap<V>> removeAndCheckRemovedValue(long key, V expectedValue) {
@@ -46,9 +47,9 @@ public class LongMapImplActions<V> {
         );
     }
 
-    public final Consumer<LongMap<V>> getAllValuesAndCheck(V[] expectedKeys) {
+    public final Consumer<LongMap<V>> getAllValuesAndCheck(V[] expectedValues) {
         return map -> assertArrayEquals(
-                Arrays.stream(expectedKeys).sorted().toArray(),
+                Arrays.stream(expectedValues).sorted().toArray(),
                 Arrays.stream(map.values()).sorted().toArray()
         );
     }
